@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>用户登录</title>
+    <style>
+        *{
+            margin: 0;
+            padding:0;
+        }
+        .login{
+            width:500px;
+            height:auto;
+            margin: 50px auto;
+        }
+    </style>
+</head>
+<body>
+<div class="login">
+    {#这个地方/login?name=是表示之前从哪里来的，登录成功后重定向到这个地方去#}
+    <form action="/login?name={{next}}" method="post">
+        {% module xsrf_form_html() %}
+        <fieldset>
+            <legend>用户登录</legend>
+            <table>
+                <tr>
+                    <td>用户名:</td>
+                    <td>
+                        <input type="text" placeholder="请输入用户名" name="username"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>密码:</td>
+                    <td>
+                        <input type="password" placeholder="请输入用密码" name="password"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        <input type="submit" value="提交"/>
+                    </td>
+                </tr>
+            </table>
+        </fieldset>
+    </form>
+</div>
+</body>
+</html>
